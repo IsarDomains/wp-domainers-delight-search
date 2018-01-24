@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maflinet-sedosearch\n"
+"POT-Creation-Date: 2017-12-15 15:35+0100\n"
+"PO-Revision-Date: 2017-12-15 15:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: http://mafli.net\n"
+"Language: de_DE@formal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: maflinet-domaining-dn-search.php:41 maflinet-domaining-dn-search.php:122
+msgid "Search"
+msgstr "Suchen"
+
+#: maflinet-domaining-dn-search.php:132
+msgid "DN Search: Search Sedo, Uniregistry or GoDaddy to find domains."
+msgstr ""
+"DN Suche: Durchsuchen der Datenbanken von Sedo, Uniregistry oder GoDaddy "
+"nach passenden Namen (mit Affiliate Links)."
+
+#: maflinet-domaining-dn-search.php:141
+msgid "mafli.net - DN Search Widget"
+msgstr "mafli.net - DN Suchfeld"
+
+#: maflinet-domaining-dn-search.php:175
+msgid "Title"
+msgstr "Titel"
+
+#: maflinet-domaining-dn-search.php:180
+msgid "Description"
+msgstr "Beschreibung (HTML erlaubt)"
+
+#: maflinet-domaining-dn-search.php:184
+msgid "Search Service Provider"
+msgstr "Anbieter"
+
+#: maflinet-domaining-dn-search.php:186
+msgid "Sedo.com"
+msgstr "Sedo.com"
+
+#: maflinet-domaining-dn-search.php:187
+msgid "Uniregistry.com"
+msgstr "Uniregistry.com"
+
+#: maflinet-domaining-dn-search.php:188
+msgid "GoDaddy.com"
+msgstr "GoDaddy.com"
+
+#: maflinet-domaining-dn-search.php:193
+msgid "Service Provider Affiliate Id"
+msgstr "Anbieter Affiliate Id"
+
+#: maflinet-domaining-dn-search.php:197
+msgid "Open Search Result in"
+msgstr "Öffne Suchergebnis in"
+
+#: maflinet-domaining-dn-search.php:205
+msgid "Show Placeholder"
+msgstr "Platzhalter-Text für das Suchfeld anzeigen"
+
+#: maflinet-domaining-dn-search.php:207 maflinet-domaining-dn-search.php:218
+#: maflinet-domaining-dn-search.php:225 maflinet-domaining-dn-search.php:252
+#: maflinet-domaining-dn-search.php:259
+msgid "No"
+msgstr "Nein"
+
+#: maflinet-domaining-dn-search.php:208 maflinet-domaining-dn-search.php:219
+#: maflinet-domaining-dn-search.php:226 maflinet-domaining-dn-search.php:253
+#: maflinet-domaining-dn-search.php:260
+msgid "Yes"
+msgstr "Ja"
+
+#: maflinet-domaining-dn-search.php:212
+msgid "Placeholder Text"
+msgstr "Platzhalter-Text für das Suchfeld"
+
+#: maflinet-domaining-dn-search.php:216
+msgid "Disable Enter Key To Start Search"
+msgstr "Deaktivieren der Enter-Taster um Suche zu starten"
+
+#: maflinet-domaining-dn-search.php:223
+msgid "Hide Searchbutton"
+msgstr "Suchschaltfläche ausblenden"
+
+#: maflinet-domaining-dn-search.php:230
+msgid "Label Searchbutton"
+msgstr "Text der Suchschaltfläche"
+
+#: maflinet-domaining-dn-search.php:235
+msgid ""
+"The following options are only relevant if <strong>Sedo.com</strong> is "
+"selected as service provider."
+msgstr ""
+"Die folgenden Einstellungen werden nur berücksichtigt, wenn als Anbieter "
+"<strong>Sedo.com</strong> gewählt wurde."
+
+#: maflinet-domaining-dn-search.php:238
+msgid "Search Extensions (TLDs)"
+msgstr "Nur Domains von folgenden Endungen suchen"
+
+#: maflinet-domaining-dn-search.php:242
+msgid "Open Sedo Result Page In Language"
+msgstr "Suchergebnis-Seite soll in folgender Sprache angezeigt werden"
+
+#: maflinet-domaining-dn-search.php:250
+msgid "Include Adult Domains"
+msgstr "Nicht jugendfreie Domains bei der Suche einbeziehen"
+
+#: maflinet-domaining-dn-search.php:257
+msgid "Use Synonym Search"
+msgstr "Keyword Variationen einbeziehen"
+
+#: maflinet-domaining-dn-search.php:357
+msgid "At least 1 character is required!"
+msgstr "Bitte mindestens 1 Zeichen eingeben!"
+
+#~ msgid "Browser default"
+#~ msgstr "Browser Standard"
+
+#~ msgid "German"
+#~ msgstr "Deutsch"
+
+#~ msgid "English"
+#~ msgstr "Englisch"
+
+#~ msgid "Spanish"
+#~ msgstr "Spanisch"
+
+#~ msgid "French"
+#~ msgstr "Französisch"
+
+#~ msgid "Chinese"
+#~ msgstr "Chinesisch"
+
+#~ msgid "Brasil"
+#~ msgstr "Brasilanisch"
+
+#~ msgid "Italian"
+#~ msgstr "Italienisch"
+
+#~ msgid "Dutch"
+#~ msgstr "Niederländisch"
+
+#~ msgid "New Window / Tab (_blank)"
+#~ msgstr "neuem Fenster oder Tab (_blank)"
+
+#~ msgid "Parent Window (_parent)"
+#~ msgstr "Elternfenster (_parent)"
+
+#~ msgid "Same Window (_self)"
+#~ msgstr "gleichem Fenster (_self)"
+
+#~ msgid "Top Window (_top)"
+#~ msgstr "ganzem Fenster (_top)"
+
+#~ msgid "Please enter at least 1 character."
+#~ msgstr "Bitte geben Sie mindestens 1 Zeichen ein."
+
+#~ msgid "Enter search term"
+#~ msgstr "Suchbegriff eingeben"
+
+#~ msgid "Sedo.com Search: Searches Sedo database for entered text."
+#~ msgstr ""
+#~ "Sedo.com Suche: Durchsucht die Sedo Datenbank nach verfügbaren Domains an "
+#~ "Hand des eingegebenen Namens."
+
+#~ msgid "Options"
+#~ msgstr "Optionen"
+
+#~ msgid ""
+#~ "The following options can be used to drive the appearance and the "
+#~ "behavior of the search field"
+#~ msgstr ""
+#~ "Die folgenden Einstellungen steuern die Anzeige und das Verhalten des "
+#~ "Suchfeldes"
+
+#~ msgid "Affiliate Id"
+#~ msgstr "Partnerprogramm Id"
+
+#~ msgid "Open in new window"
+#~ msgstr "Soll Suchergebnis in einem neuen Fenster geöffnet werden"
+
+#, fuzzy
+#~| msgid "Options"
+#~ msgid "OptionsLegend"
+#~ msgstr "Optionen"
