@@ -21,3 +21,6 @@ A screenshot from the backend:
 
 ![Backend view](https://user-images.githubusercontent.com/35771024/35507075-d4dba3b8-04eb-11e8-8abe-ba7910c95f33.JPG)
 
+## What else to know?
+**HAPPY DOMAINING!** 
+I can recommend Michael Cyger's [DNAcademy.com course](https://www.dnacademy.com?ref=mario.fliegner@mafli.net-141) to deep dive into domaining. And if you want... follow me on Twitter [@Isardomains](https://twitter.com/IsarDomains)
