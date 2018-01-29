@@ -1,32 +1,32 @@
 <?php
 /*
-Plugin Name: mafli.net - DN Search Widget
-Plugin URI:  http://mafli.net/wordpress-plugin-dn-search/
+Plugin Name: Domainers Delight - Search Widget
+Plugin URI:  http://mafli.net/wordpress-plugin-domainers-delight-search
 Description: Search Sedo, Uniregistry or GoDaddy database for domain names (including Affiliate Ids)
-Author: IsarDomains.com
+Author: Mario Fliegner
 Author URI: http://isardomains.com
 Version: 0.1
-Text Domain: maflinet-dn-search
+Text Domain: domainers-delight-search
 */
 
-// Register MaFliNet_DNSearch_Widget widget
-function register_maflinet_dnsearchfield_widget() {
-    register_widget( 'MaFliNet_DNSearch_Widget' );
+// Register DomainersDelight_Search_Widget widget
+function register_domainers_delight_search_widget() {
+    register_widget( 'DomainersDelight_Search_Widget' );
 }
 
-// Include the JS file that contains neccessary code
-function maflinet_dnsearchfield_enqueue_script(){
-	wp_enqueue_style('maflinet_css', plugin_dir_url( __FILE__ ) . 'css/maflinet.css');
-    wp_enqueue_script( 'maflinet_js_script', plugin_dir_url( __FILE__ ) . 'js/maflinet.js', '1.0' );
+// Include the JS file that contains necessary code
+function domainers_delight_search_enqueue_script(){
+	wp_enqueue_style('domainersdelight_css', plugin_dir_url( __FILE__ ) . 'css/search.css');
+    wp_enqueue_script( 'domainersdelight_js_script', plugin_dir_url( __FILE__ ) . 'js/search.js', '1.0' );
 }
 
 // Provide the translation
-function maflinet_dnsearchfield_translation() {
-	load_plugin_textdomain( 'maflinet-dn-search', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
+function domainersdelight_search_translation() {
+	load_plugin_textdomain( 'domainers-delight-search', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 }
 
 // The code that prepares the shortcode 
-function maflinet_dnsearch_shortcode($params = [], $content="") {
+function domainersdelight_search_shortcode($params = [], $content="") {
 	global $serviceProviderList;
 	global $languageList;
 	//merge values with defaults
@@ -38,7 +38,7 @@ function maflinet_dnsearch_shortcode($params = [], $content="") {
 		'placeholdertext'      => '',
 		'disableenterkey'       => 'false',
 		'hidesearchbutton'     => 'false',
-		'searchbuttonlabel'    => __( 'Search', 'maflinet-dn-search' ),
+		'searchbuttonlabel'    => __( 'Search', 'domainers-delight-search' ),
 		'sedowebsitelanguage'  => '',
 		'sedowebsitesearchtlds'  => '',
 		'sedowebsiteshowadult'  => 'false',
@@ -96,12 +96,12 @@ $openSearchResultList = array('_blank'  => 'New Window / Tab (_blank)',
 							  '_top'    => 'Top Window (_top)');
 
 // Hook up all related stuff
-add_action('widgets_init', 'register_maflinet_dnsearchfield_widget' );
-add_action('wp_enqueue_scripts', 'maflinet_dnsearchfield_enqueue_script');
-add_action('plugins_loaded', 'maflinet_dnsearchfield_translation');
-add_shortcode('dnsearch', 'maflinet_dnsearch_shortcode');
+add_action('widgets_init', 'register_domainers_delight_search_widget' );
+add_action('wp_enqueue_scripts', 'domainers_delight_search_enqueue_script');
+add_action('plugins_loaded', 'domainersdelight_search_translation');
+add_shortcode('dnsearch', 'domainersdelight_search_shortcode');
 
-class MaFliNet_DNSearch_Widget extends WP_Widget {
+class DomainersDelight_Search_Widget extends WP_Widget {
 
 	protected $defaults;
 
@@ -119,7 +119,7 @@ class MaFliNet_DNSearch_Widget extends WP_Widget {
 			'placeholderText'      => '',
 			'disableEnterKey'       => 'false',
 			'hideSearchButton'     => 'false',
-			'searchButtonLabel'    => __( 'Search', 'maflinet-dn-search' ),
+			'searchButtonLabel'    => __( 'Search', 'domainers-delight-search' ),
 			'targetSite'			=> 'sedo',
 			'sedoWebsiteLanguage'  => '',
 			'sedoWebsiteSearchTLDs'  => '',
@@ -129,7 +129,7 @@ class MaFliNet_DNSearch_Widget extends WP_Widget {
 		
 		$widget_ops = array(
 			'classname'   => 'user-profile',
-			'description' => __( 'DN Search: Search Sedo, Uniregistry or GoDaddy to find domains.', 'maflinet-dn-search' ),
+			'description' => __( 'Domainers Delight: Search Sedo, Uniregistry or GoDaddy to find your domain name.', 'domainers-delight-search' ),
 		);
 
 		$control_ops = array(
@@ -138,7 +138,7 @@ class MaFliNet_DNSearch_Widget extends WP_Widget {
 			'height'  => 250,
 		);
 
-		parent::__construct( 'user-profile', __( 'mafli.net - DN Search Widget', 'maflinet-dn-search' ), $widget_ops, $control_ops );
+		parent::__construct( 'user-profile', __( 'Domainers Delight - Search Widget', 'domainers-delight-search' ), $widget_ops, $control_ops );
 
 	}
 
@@ -172,92 +172,92 @@ class MaFliNet_DNSearch_Widget extends WP_Widget {
 		global $openSearchResultList;
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'maflinet-dn-search'); ?>:</label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'domainers-delight-search'); ?>:</label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance['title']); ?>" />
 		</p>
 		<fieldset>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'maflinet-dn-search' ); ?>:</label>
+				<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'domainers-delight-search' ); ?>:</label>
 				<textarea class="widefat" rows="8" id="<?php echo $this->get_field_id('description'); ?>" name="<?php echo $this->get_field_name('description'); ?>"><?php echo $instance["description"]; ?></textarea>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'targetSite' ); ?>"><?php _e( 'Search Service Provider', 'maflinet-dn-search' ); ?>:</label>
+				<label for="<?php echo $this->get_field_id( 'targetSite' ); ?>"><?php _e( 'Search Service Provider', 'domainers-delight-search' ); ?>:</label>
 				<select name="<?php echo $this->get_field_name('targetSite'); ?>" id="<?php echo $this->get_field_id('targetSite'); ?>" class="widefat">
-					<option value="sedo" <?php selected( $instance['targetSite'], 'sedo' ); ?>><?php _e('Sedo.com', 'maflinet-dn-search'); ?></option>
-					<option value="uniregistry" <?php selected( $instance['targetSite'], 'uniregistry' ); ?>><?php _e('Uniregistry.com', 'maflinet-dn-search'); ?></option>
-					<option value="godaddy" <?php selected( $instance['targetSite'], 'godaddy' ); ?>><?php _e('GoDaddy.com', 'maflinet-dn-search'); ?></option>
+					<option value="sedo" <?php selected( $instance['targetSite'], 'sedo' ); ?>><?php _e('Sedo.com', 'domainers-delight-search'); ?></option>
+					<option value="uniregistry" <?php selected( $instance['targetSite'], 'uniregistry' ); ?>><?php _e('Uniregistry.com', 'domainers-delight-search'); ?></option>
+					<option value="godaddy" <?php selected( $instance['targetSite'], 'godaddy' ); ?>><?php _e('GoDaddy.com', 'domainers-delight-search'); ?></option>
 				</select>
 			</p>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'affiliateId' ); ?>"><?php _e( 'Service Provider Affiliate Id', 'maflinet-dn-search' ); ?>:</label>
+				<label for="<?php echo $this->get_field_id( 'affiliateId' ); ?>"><?php _e( 'Service Provider Affiliate Id', 'domainers-delight-search' ); ?>:</label>
 				<input type="text" id="<?php echo $this->get_field_id( 'affiliateId' ); ?>" name="<?php echo $this->get_field_name( 'affiliateId' ); ?>" value="<?php echo esc_attr( $instance['affiliateId'] ); ?>" class="widefat" maxlength="15"/>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'openResultInTarget' ); ?>"><?php _e( 'Open Search Result in', 'maflinet-dn-search' ); ?>:</label>
+				<label for="<?php echo $this->get_field_id( 'openResultInTarget' ); ?>"><?php _e( 'Open Search Result in', 'domainers-delight-search' ); ?>:</label>
 				<select name="<?php echo $this->get_field_name('openResultInTarget'); ?>" id="<?php echo $this->get_field_id('openResultInTarget'); ?>" class="widefat">
 					<?php foreach ($openSearchResultList as $lang => $description) { ?>
-					<option value="<?=$lang?>" <?php selected( $instance['openResultInTarget'], $lang ); ?>><?php _e($description, 'maflinet-dn-search'); ?></option>
+					<option value="<?=$lang?>" <?php selected( $instance['openResultInTarget'], $lang ); ?>><?php _e($description, 'domainers-delight-search'); ?></option>
 					<?php } ?>
 				</select>
 			</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'showPlaceholderText' ); ?>"><?php _e( 'Show Placeholder', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'showPlaceholderText' ); ?>"><?php _e( 'Show Placeholder', 'domainers-delight-search' ); ?>:</label>
 			<select name="<?php echo $this->get_field_name('showPlaceholderText'); ?>" id="<?php echo $this->get_field_id('showPlaceholderText'); ?>" class="widefat">
-				<option value="false" <?php selected( $instance['showPlaceholderText'], 'false' ); ?>><?php _e('No', 'maflinet-dn-search'); ?></option>
-				<option value="true" <?php selected( $instance['showPlaceholderText'], 'true' ); ?>><?php _e('Yes', 'maflinet-dn-search'); ?></option>
+				<option value="false" <?php selected( $instance['showPlaceholderText'], 'false' ); ?>><?php _e('No', 'domainers-delight-search'); ?></option>
+				<option value="true" <?php selected( $instance['showPlaceholderText'], 'true' ); ?>><?php _e('Yes', 'domainers-delight-search'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'placeholderText' ); ?>"><?php _e( 'Placeholder Text', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'placeholderText' ); ?>"><?php _e( 'Placeholder Text', 'domainers-delight-search' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'placeholderText' ); ?>" name="<?php echo $this->get_field_name( 'placeholderText' ); ?>" value="<?php echo esc_attr( $instance['placeholderText'] ); ?>" class="widefat" maxlength="20" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'disableEnterKey' ); ?>"><?php _e( 'Disable Enter Key To Start Search', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'disableEnterKey' ); ?>"><?php _e( 'Disable Enter Key To Start Search', 'domainers-delight-search' ); ?>:</label>
 			<select name="<?php echo $this->get_field_name('disableEnterKey'); ?>" id="<?php echo $this->get_field_id('disableEnterKey'); ?>" class="widefat">
-				<option value="false" <?php selected( $instance['disableEnterKey'], 'false' ); ?>><?php _e('No', 'maflinet-dn-search'); ?></option>
-				<option value="true" <?php selected( $instance['disableEnterKey'], 'true' ); ?>><?php _e('Yes', 'maflinet-dn-search'); ?></option>
+				<option value="false" <?php selected( $instance['disableEnterKey'], 'false' ); ?>><?php _e('No', 'domainers-delight-search'); ?></option>
+				<option value="true" <?php selected( $instance['disableEnterKey'], 'true' ); ?>><?php _e('Yes', 'domainers-delight-search'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'hideSearchButton' ); ?>"><?php _e( 'Hide Searchbutton', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'hideSearchButton' ); ?>"><?php _e( 'Hide Searchbutton', 'domainers-delight-search' ); ?>:</label>
 			<select name="<?php echo $this->get_field_name('hideSearchButton'); ?>" id="<?php echo $this->get_field_id('hideSearchButton'); ?>" class="widefat">
-				<option value="false" <?php selected( $instance['hideSearchButton'], 'false' ); ?>><?php _e('No', 'maflinet-dn-search'); ?></option>
-				<option value="true" <?php selected( $instance['hideSearchButton'], 'true' ); ?>><?php _e('Yes', 'maflinet-dn-search'); ?></option>
+				<option value="false" <?php selected( $instance['hideSearchButton'], 'false' ); ?>><?php _e('No', 'domainers-delight-search'); ?></option>
+				<option value="true" <?php selected( $instance['hideSearchButton'], 'true' ); ?>><?php _e('Yes', 'domainers-delight-search'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'searchButtonLabel' ); ?>"><?php _e( 'Label Searchbutton', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'searchButtonLabel' ); ?>"><?php _e( 'Label Searchbutton', 'domainers-delight-search' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'searchButtonLabel' ); ?>" name="<?php echo $this->get_field_name( 'searchButtonLabel' ); ?>" value="<?php echo esc_attr( $instance['searchButtonLabel'] ); ?>" class="widefat" />
 		</p>
 		</fieldset>
 		<hr/>
-		<p><?php _e( 'The following options are only relevant if <strong>Sedo.com</strong> is selected as service provider.', 'maflinet-dn-search'); ?></p>
+		<p><?php _e( 'The following options are only relevant if <strong>Sedo.com</strong> is selected as service provider.', 'domainers-delight-search'); ?></p>
 		<fieldset>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'sedoWebsiteSearchTLDs' ); ?>"><?php _e( 'Search Extensions (TLDs)', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'sedoWebsiteSearchTLDs' ); ?>"><?php _e( 'Search Extensions (TLDs)', 'domainers-delight-search' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'sedoWebsiteSearchTLDs' ); ?>" name="<?php echo $this->get_field_name( 'sedoWebsiteSearchTLDs' ); ?>" value="<?php echo esc_attr( $instance['sedoWebsiteSearchTLDs'] ); ?>" class="widefat" placeholder="Example: com,de,net,club" />
 		</p>		
 		<p>
-			<label for="<?php echo $this->get_field_id( 'sedoWebsiteLanguage' ); ?>"><?php _e('Open Sedo Result Page In Language', 'maflinet-dn-search'); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'sedoWebsiteLanguage' ); ?>"><?php _e('Open Sedo Result Page In Language', 'domainers-delight-search'); ?>:</label>
 			<select name="<?php echo $this->get_field_name('sedoWebsiteLanguage'); ?>" id="<?php echo $this->get_field_id('sedoWebsiteLanguage'); ?>" class="widefat">
 				<?php foreach ($languageList as $prefix => $translation) { ?>
-					<option value="<?=$prefix?>" <?php selected( $instance['sedoWebsiteLanguage'], $prefix ); ?>><?php _e($translation,'maflinet-dn-search');?></option>
+					<option value="<?=$prefix?>" <?php selected( $instance['sedoWebsiteLanguage'], $prefix ); ?>><?php _e($translation,'domainers-delight-search');?></option>
 				<?php } ?>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'sedoWebsiteSafeSearch' ); ?>"><?php _e( 'Include Adult Domains', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'sedoWebsiteSafeSearch' ); ?>"><?php _e( 'Include Adult Domains', 'domainers-delight-search' ); ?>:</label>
 			<select name="<?php echo $this->get_field_name('sedoWebsiteSafeSearch'); ?>" id="<?php echo $this->get_field_id('sedoWebsiteSafeSearch'); ?>" class="widefat">
-				<option value="1" <?php selected( $instance['sedoWebsiteSafeSearch'], '1' ); ?>><?php _e('No', 'maflinet-dn-search'); ?></option>
-				<option value="2" <?php selected( $instance['sedoWebsiteSafeSearch'], '2' ); ?>><?php _e('Yes', 'maflinet-dn-search'); ?></option>
+				<option value="1" <?php selected( $instance['sedoWebsiteSafeSearch'], '1' ); ?>><?php _e('No', 'domainers-delight-search'); ?></option>
+				<option value="2" <?php selected( $instance['sedoWebsiteSafeSearch'], '2' ); ?>><?php _e('Yes', 'domainers-delight-search'); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'sedoWebsiteSearchVariations' ); ?>"><?php _e( 'Use Synonym Search', 'maflinet-dn-search' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'sedoWebsiteSearchVariations' ); ?>"><?php _e( 'Use Synonym Search', 'domainers-delight-search' ); ?>:</label>
 			<select name="<?php echo $this->get_field_name('sedoWebsiteSearchVariations'); ?>" id="<?php echo $this->get_field_id('sedoWebsiteSearchVariations'); ?>" class="widefat">
-				<option value="false" <?php selected( $instance['sedoWebsiteSearchVariations'], 'false' ); ?>><?php _e('No', 'maflinet-dn-search'); ?></option>
-				<option value="true" <?php selected( $instance['sedoWebsiteSearchVariations'], 'true' ); ?>><?php _e('Yes', 'maflinet-dn-search'); ?></option>
+				<option value="false" <?php selected( $instance['sedoWebsiteSearchVariations'], 'false' ); ?>><?php _e('No', 'domainers-delight-search'); ?></option>
+				<option value="true" <?php selected( $instance['sedoWebsiteSearchVariations'], 'true' ); ?>><?php _e('Yes', 'domainers-delight-search'); ?></option>
 			</select>
 		</p>
 		</fieldset>
@@ -335,28 +335,28 @@ function displayDNSearchField($instance){
 		$placeholder = $placeholderText;
 	}
 
-	$css = "maflinet_searchfield_left";
+	$css = "domainersdelight_searchfield_left";
 	if($hideSearchButton=="true"){ 
-		$css = "maflinet_searchfield_full";
+		$css = "domainersdelight_searchfield_full";
 	}
 	?>
-	<div id="maflinet_dn_search_<?=$uniqueIdFormFields?>" class="maflinet_dn_search">
-		<div id="maflinet_dn_search_description_<?=$uniqueIdFormFields?>" class="maflinet_dn_search_description">
+	<div id="domainersdelight_dn_search_<?=$uniqueIdFormFields?>" class="domainersdelight_dn_search">
+		<div id="domainersdelight_dn_search_description_<?=$uniqueIdFormFields?>" class="domainersdelight_dn_search_description">
 			<?=$description;?>
 		</div>
-		<div id="maflinet_search_wrapper_<?=$uniqueIdFormFields?>" class="maflinet_searchfield_wrapper">			
-				<div class="<?=$css?>" id="maflinet_search_wrapper_left_<?=$uniqueIdFormFields?>">
-					<input id="maflinet_sedosearch_domainname_<?=$uniqueIdFormFields?>" name="maflinet_sedosearch_domainname_<?=$uniqueIdFormFields?>" required value="" maxlength="128" type="text" <?php if("false" == $disableEnterKey){ ?> onKeyPress="if (event.keyCode==13){searchDomains('<?=$uniqueIdFormFields?>', '<?=$targetSite?>', '<?=$baseAffiliateURL?>','<?=$affiliateId?>', '<?=$sedoWebsiteLanguage?>', '<?=$sedoSafeSearch?>', '<?=$sedoSearchVariations?>', '<?=$sedoSearchTLDs?>', '<?=$openResultInTarget?>');}" <?php } ?>placeholder="<?=$placeholder?>">
-				</div> <!-- maflinet_search_wrapper_left -->
+		<div id="domainersdelight_search_wrapper_<?=$uniqueIdFormFields?>" class="domainersdelight_searchfield_wrapper">			
+				<div class="<?=$css?>" id="domainersdelight_search_wrapper_left_<?=$uniqueIdFormFields?>">
+					<input id="domainersdelight_sedosearch_domainname_<?=$uniqueIdFormFields?>" name="domainersdelight_sedosearch_domainname_<?=$uniqueIdFormFields?>" required value="" maxlength="128" type="text" <?php if("false" == $disableEnterKey){ ?> onKeyPress="if (event.keyCode==13){searchDomains('<?=$uniqueIdFormFields?>', '<?=$targetSite?>', '<?=$baseAffiliateURL?>','<?=$affiliateId?>', '<?=$sedoWebsiteLanguage?>', '<?=$sedoSafeSearch?>', '<?=$sedoSearchVariations?>', '<?=$sedoSearchTLDs?>', '<?=$openResultInTarget?>');}" <?php } ?>placeholder="<?=$placeholder?>">
+				</div> <!-- domainersdelight_searchfield_left -->
 				<?php if($hideSearchButton=="false"){ ?>				
-					<div class="maflinet_searchfield_right" id="maflinet_search_wrapper_right_<?=$uniqueIdFormFields?>">				
-						<input type="button" value="<?=$searchButtonLabel?>" onClick="searchDomains('<?=$uniqueIdFormFields?>', '<?=$targetSite?>', '<?=$baseAffiliateURL?>', '<?=$affiliateId?>', '<?=$sedoWebsiteLanguage?>', '<?=$sedoSafeSearch?>', '<?=$sedoSearchVariations?>', '<?=$sedoSearchTLDs?>', '<?=$openResultInTarget?>');" id="maflinet_sedosearch_submit_<?=$uniqueIdFormFields?>" name="maflinet_sedosearch_submit_<?=$uniqueIdFormFields?>">
-					</div> <!-- maflinet_searchfield_right -->
+					<div class="domainersdelight_searchfield_right" id="domainersdelight_search_wrapper_right_<?=$uniqueIdFormFields?>">				
+						<input type="button" value="<?=$searchButtonLabel?>" onClick="searchDomains('<?=$uniqueIdFormFields?>', '<?=$targetSite?>', '<?=$baseAffiliateURL?>', '<?=$affiliateId?>', '<?=$sedoWebsiteLanguage?>', '<?=$sedoSafeSearch?>', '<?=$sedoSearchVariations?>', '<?=$sedoSearchTLDs?>', '<?=$openResultInTarget?>');" id="domainersdelight_sedosearch_submit_<?=$uniqueIdFormFields?>" name="domainersdelight_sedosearch_submit_<?=$uniqueIdFormFields?>">
+					</div> <!-- domainersdelight_searchfield_right -->
 				<?php } ?>
-			<div class="maflinet_searchfield_error_hidden" id="maflinet_sedosearch_error_<?=$uniqueIdFormFields?>" name="maflinet_sedosearch_error_<?=$uniqueIdFormFields?>">
-				<div class="maflinet_searchfield_error"><?php _e('At least 1 character is required!', 'maflinet-dn-search'); ?></div>
-			</div> <!-- maflinet_searchfield_error_hidden -->
-		</div> <!-- maflinet_search_wrapper -->
-	</div><!-- maflinet_dn_search -->
+			<div class="domainersdelight_searchfield_error_hidden" id="domainersdelight_sedosearch_error_<?=$uniqueIdFormFields?>" name="domainersdelight_sedosearch_error_<?=$uniqueIdFormFields?>">
+				<div class="domainersdelight_searchfield_error"><?php _e('At least 1 character is required!', 'domainers-delight-search'); ?></div>
+			</div> <!-- domainersdelight_searchfield_error_hidden -->
+		</div> <!-- domainersdelight_searchfield_wrapper -->
+	</div><!-- domainersdelight_dn_search -->
 	<?php
 }

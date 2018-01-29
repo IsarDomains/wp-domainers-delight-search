@@ -14,14 +14,14 @@
  * @param target - The name of the target where the link should be opened (_blank, _self, _top, _parent)
  */
 function searchDomains(uniqueId, platformName, targetSite, partnerId, language, safeSearch, searchVariations, searchTLDs, target){
-	if(document.getElementById('maflinet_sedosearch_domainname_' + uniqueId).value.length ==0){
-		document.getElementById('maflinet_sedosearch_error_' + uniqueId).style.visibility = "visible";
+	if(document.getElementById('domainersdelight_sedosearch_domainname_' + uniqueId).value.length ==0){
+		document.getElementById('domainersdelight_sedosearch_error_' + uniqueId).style.visibility = "visible";
 		return;
 	}else {
-		document.getElementById('maflinet_sedosearch_error_' + uniqueId).style.visibility = "hidden";
+		document.getElementById('domainersdelight_sedosearch_error_' + uniqueId).style.visibility = "hidden";
 	}
 	//the entered search term
-	var term = document.getElementById('maflinet_sedosearch_domainname_' + uniqueId).value;
+	var term = document.getElementById('domainersdelight_sedosearch_domainname_' + uniqueId).value;
 	var platformURL = "";
 	if('sedo' == platformName) {
 		platformURL = searchSedo(term, targetSite, partnerId, language, safeSearch, searchVariations, searchTLDs);
@@ -54,7 +54,7 @@ function searchSedo(term, targetSite, partnerId, language, safeSearch, searchVar
  * 
  * @param term - The search term
  * @param targetSite - The basic websiteURL to search
- * @param partnerId - The id of Sedos affiliate programm
+ * @param partnerId - The id of Uniregistry's affiliate program
  */
 function searchUniregistry(term, targetSite, partnerId,){
 	var urlParams = "&aid=" + partnerId;
@@ -66,7 +66,7 @@ function searchUniregistry(term, targetSite, partnerId,){
  * 
  * @param term - The search term
  * @param targetSite - The basic websiteURL to search
- * @param partnerId - The id of Sedos affiliate programm
+ * @param partnerId - The id of GoDaddy's affiliate program
  */
 function searchGoDaddy(term, targetSite, partnerId,){
 	var urlParams = "&isc=" + partnerId + "&checkAvail=1";
@@ -76,7 +76,7 @@ function searchGoDaddy(term, targetSite, partnerId,){
 /**
  * Function getTLDSelection
  * Split the searchTLDs and prepare it for usage
- * as URL parameter to query Sedos database only
+ * as URL parameter to query Sedo's database only
  * for the desired TLDs.
  * Code pattern is: cc[0]=com&cc[1]=de&cc[2]=...
  *

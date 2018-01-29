@@ -1,0 +1,32 @@
+.domainersdelight_dn_search {
+	display: block;
+}
+.domainersdelight_dn_search_description {
+	
+}
+.domainersdelight_searchfield_wrapper {
+	width: 100%;
+	margin:auto;
+}
+.domainersdelight_searchfield_left{
+	float: left;
+	width: 65%;
+	overflow: hidden;
+}
+/* Will be used when hideSearchButton=true */
+.domainersdelight_searchfield_full{
+	width: 100%;
+}
+.domainersdelight_searchfield_right{
+	width: 35%; 
+	overflow: hidden;
+}
+.domainersdelight_searchfield_error{
+	color:red;
+	font-style:italic;
+	display:block;
+}
+.domainersdelight_searchfield_error_hidden{
+	visibility:hidden;
+	clear:left;
+}
